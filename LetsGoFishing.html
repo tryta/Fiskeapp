@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8" />
+<head>
+    <title></title>
+    <script src="JS/main.js"></script>
+</head>
+<body>
+    <div id="page">
+    </div>
+    <script>
+        var header = document.getElementById('header');
+        var content = document.getElementById('content');
+        showMainScreen();
+    </script>
+    <style>
+        .wrapper {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 1fr;
+            grid-template-rows: 370px auto 30px;
+            grid-template-areas: 'header' 'content' 'footer';
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .header {
+            grid-area: header;
+        }
+
+        .content {
+            grid-area: content;
+        }
+
+        .footer {
+            grid-area: footer;
+        }
+
+        .image {
+            width: 100%;
+            min-height: 300px;
+            max-height: 300px;
+            border-bottom: solid black 1px;
+            background-image: url(https://ci6.googleusercontent.com/proxy/PdfJ6t6_QTZkJp1fMQVteWj4We5eJC2NHSWDJo914yIuXayNjnj4BMmJqxJ6C44jcWuF6sJ-abI1AsbCwREKeR3E-8U56ZslVp-z00zehcN-ONqKx12uXFky_GKh8LFDFXLv1TN6pOZ5=s0-d-e1-ft);
+            background-repeat: no-repeat;
+            background-size: 100% 300px;
+        }
+
+        .navbar {
+            width: 100%;
+            background-color: #dedede;
+            height: 30px;
+            border-bottom: solid black 1px;
+            overflow: hidden;
+        }
+
+        .logo {
+            color: black;
+            text-transform: uppercase;
+            height: 30px;
+            padding: 5px;
+            float: right;
+            border-left: solid black 1px;
+            border-right: solid black 1px;
+            border-top: none;
+            border-bottom: none;
+            background-color: #dedede;
+        }
+
+        .menu-item {
+            color: black;
+            text-transform: uppercase;
+            padding: 5px;
+            float: left;
+            height: 30px;
+            border-left: none;
+            border-right: solid black 1px;
+            border-top: none;
+            border-bottom: none;
+            background-color: #dedede;
+        }
+
+        body {
+            font-family: Arial;
+            margin: 0px;
+            text-transform: uppercase;
+            background-color: #4776a3;
+        }
+
+        .lagetav {
+            text-align: center;
+            line-height: 29px;
+            color: white;
+            border-top: black solid 1px;
+            font-weight: lighter;
+            font-size: 10px;
+        }
+
+        .button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
+            border: solid black 1px;
+            color: white;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 50px;
+            border-radius: 2px;
+            padding: 10px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        #modal {
+            width: 100%;
+            display: none;
+        }
+
+        .sub-item {
+            display: block;
+            color: black;
+            background-color: #dedede;
+            text-transform: uppercase;
+            height: 50px;
+            width: 50%;
+            border-left: solid black 1px;
+            border-right: solid black 1px;
+            border-bottom: solid black 1px;
+            border-top: solid black 1px;
+            border-radius: 5px;
+            margin-top: auto;
+            margin: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button-content {
+            display: block;
+            color: black;
+            background-color: #dedede;
+            text-transform: uppercase;
+            height: 50px;
+            width: 50%;
+            border-left: solid black 1px;
+            border-right: solid black 1px;
+            border-bottom: solid black 1px;
+            border-top: solid black 1px;
+            border-radius: 5px;
+            margin-top: auto;
+            margin: 5px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="wrapper" id="wrapper">
+            <div class="header" id="header">
+                <div class="image"></div>
+                <div id="navbar" class="navbar">
+                    <button class="logo" onclick="kontaktInfo()">Kontakt Oss</button>
+                    <button class="menu-item" onclick="fiske()">Fiske</button>
+                    <button class="menu-item" onclick="">Fiskeutstyr</button>
+                    <button class="menu-item" onclick="">Fiskearter</button>
+                    <button class="menu-item" onclick="tabell()"><i class="fas fa-home"></i> Huggtabell 2019</button>
+                </div>
+            </div>
+            <div class="content" id="content">
+                <div id="modal" class="modal">                   
+                    <div class="sub-content">
+
+                        <button class="button-content">Meitefiske</button>
+                        <button class="button-content">Sjøørret-fiske</button>
+                        <button class="button-content">Lakse-fiske</button>
+                        <button class="button-content">Sjø-fiske</button>
+                        <button class="button-content">Ferskvanns-fiske</button>
+                        <button onclick="RemoveModal()" class="sub-item">close</button>
+                    </div>
+                </div>
+                <div id="mainextra"></div>
+            </div>
+            <div class="footer" id="footer">
+                <div class="lagetav">Copyright © 2019 Alexander Evensen | Kontakt: alexandere@getacademy.no</div>
+            </div>
+        </div>
+
+        <script>
+            function fiske() {
+                document.getElementById('modal').style.cssText = 'display: block;';
+            }
+            function RemoveModal() {
+                document.getElementById('modal').style.cssText = 'display: none;';
+                }
+
+    function tabell() {   
+    mainextra.innerHTML = `
+    <div><center><img src="https://www.fiskeavisen.no/wp-content/uploads/2019/02/52983090_631167290668769_1908766896082124800_n.jpg"></div>
+    `;
+}
+        </script>
+    </body>
+</html>
+
+</body>
+</html>
